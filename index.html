@@ -234,6 +234,167 @@ footer#footer { background-color: #454545; color: #ffffff; margin-top: 80px; pad
 }
 .clinic-chip.muted { opacity: 0.5; font-style: italic; }
 
+/* === 東京エリア地図 === */
+.tokyo-map-wrap {
+  margin: 24px 0;
+  background: #fff;
+  border: 2px solid #C3D8DA;
+  border-radius: 12px;
+  padding: 20px 16px;
+  box-shadow: 0 2px 6px rgba(24,151,160,0.06);
+}
+.tokyo-map {
+  width: 100%; max-width: 480px;
+  margin: 0 auto 12px;
+  display: block;
+  height: auto;
+}
+.map-legend {
+  display: flex; flex-direction: column; gap: 6px;
+  background: #f1faf9;
+  border-radius: 8px;
+  padding: 12px 16px;
+  max-width: 320px;
+  margin: 0 auto;
+}
+.map-legend-row {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; color: #04384c;
+}
+.map-legend-row strong {
+  margin-left: auto; color: #cc2e22; font-size: 15px;
+}
+.map-legend-dot {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: #cc2e22;
+  flex-shrink: 0;
+}
+.tokyo-map-title {
+  font-size: 14px; font-weight: bold; color: #04384c;
+  text-align: center; margin-bottom: 14px;
+  padding-bottom: 10px; border-bottom: 1px dashed #C3D8DA;
+}
+.map-legend-total {
+  border-top: 1px dashed #C3D8DA;
+  padding-top: 10px; margin-top: 6px;
+  text-align: center;
+  font-size: 14px; color: #04384c; font-weight: bold;
+}
+.map-total-num {
+  color: #1897a0; font-size: 24px; font-weight: bold;
+  margin: 0 6px;
+}
+.map-total-sub {
+  font-size: 11px; color: #666; font-weight: normal;
+  margin-top: 4px; display: inline-block;
+}
+
+/* === 3タイプ比較表（既存LP09トンマナ） === */
+.type-compare-wrap {
+  margin: 28px 0;
+  background: #fff;
+  border-radius: 16px;
+  padding: 18px 14px;
+  border: 2px solid #C3D8DA;
+  box-shadow: 0 2px 8px rgba(24,151,160,0.06);
+}
+.type-compare-table {
+  width: 100%; border-collapse: separate; border-spacing: 0;
+  background: transparent;
+}
+.type-compare-table th, .type-compare-table td {
+  padding: 14px 6px; text-align: center;
+  border-bottom: 1px solid #e8eef0;
+  font-size: 13px;
+  line-height: 1.5;
+  vertical-align: middle;
+}
+
+/* ヘッダー行（ティール背景+白文字） */
+.type-compare-table thead th {
+  background: #5fb3b8;
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 14px 4px;
+  vertical-align: middle;
+  position: relative;
+  border-bottom: none;
+}
+.type-compare-table thead th:first-child {
+  background: transparent;
+}
+.type-compare-table thead th:first-of-type {
+  border-top-left-radius: 8px;
+}
+.type-compare-table thead th:last-of-type {
+  border-top-right-radius: 8px;
+}
+.type-compare-svg {
+  display: none;
+}
+.type-th-label {
+  display: block; font-size: 13px;
+  font-weight: bold;
+  line-height: 1.3;
+  color: #fff;
+}
+.type-recommended-th {
+  background: #1897a0 !important;
+  position: relative;
+}
+.type-recommended-tag {
+  position: absolute;
+  top: -12px; left: 50%; transform: translateX(-50%);
+  background: #cc2e22; color: #fff;
+  padding: 3px 14px; border-radius: 14px;
+  font-size: 11px; font-weight: bold;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(204,46,34,0.3);
+  z-index: 2;
+}
+
+/* 軸ラベル（左列・グレー） */
+.type-axis {
+  background: transparent !important;
+  color: #888 !important;
+  font-size: 13px !important;
+  font-weight: bold;
+  text-align: left !important;
+  padding-left: 4px !important;
+  width: 22%;
+}
+
+/* 推奨セル（中央列） */
+.type-recommended-cell {
+  background: #f1faf9 !important;
+  color: #04384c;
+  font-weight: bold;
+}
+
+.type-compare-table .type-o {
+  color: #1897a0; font-size: 20px; font-weight: bold;
+}
+.type-compare-table .type-x {
+  color: #cc2e22; font-size: 20px; font-weight: bold;
+}
+.type-compare-table tbody tr:last-child td,
+.type-compare-table tbody tr:last-child th {
+  border-bottom: none;
+}
+
+@media (max-width: 480px) {
+  .type-compare-table th, .type-compare-table td {
+    padding: 8px 3px; font-size: 11.5px;
+  }
+  .type-axis { font-size: 11px !important; padding-left: 6px !important; }
+  .type-compare-svg { width: 28px; height: 28px; }
+  .type-th-label { font-size: 11px; }
+  .type-recommended-tag { font-size: 10px; padding: 2px 8px; }
+  .tokyo-map-wrap { padding: 16px 10px; }
+}
+
+
 /* === 3タイプカード === */
 .type-card-new {
   background: #fff; border: 2px solid #C3D8DA; border-radius: 8px;
@@ -600,6 +761,60 @@ footer#footer { background-color: #454545; color: #ffffff; margin-top: 80px; pad
   width: 68px; height: 68px; margin: 0 auto 10px;
 }
 .risk-icon svg { width: 100%; height: 100%; }
+
+/* === リスクアイコンV2（大型・画像っぽく） === */
+.risk-item-v2 {
+  background: linear-gradient(180deg, #fff 0%, #fff7f6 100%);
+  border: 2px solid #ffd6d2;
+  border-radius: 14px;
+  padding: 18px 12px 16px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.risk-item-v2::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, #ff5544, #cc2e22, #ff5544);
+}
+.risk-icon-bg {
+  width: 100%;
+  display: flex; justify-content: center;
+  padding: 8px 0;
+  margin-bottom: 10px;
+}
+.risk-icon-v2 {
+  width: 90px; height: 90px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(204,46,34,0.12);
+  padding: 6px;
+}
+.risk-icon-v2 svg { width: 100%; height: 100%; }
+.risk-item-v2 .risk-num {
+  font-family: 'DIN Alternate', sans-serif;
+  font-size: 12px; font-weight: bold;
+  color: #fff;
+  background: #cc2e22;
+  display: inline-block;
+  padding: 2px 10px; border-radius: 12px;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 600px) {
+  .risk-grid { grid-template-columns: 1fr; gap: 12px; }
+  .risk-item-v2 { display: grid;
+    grid-template-columns: 80px 1fr; gap: 14px; text-align: left;
+    align-items: center; padding: 14px; }
+  .risk-icon-bg { margin: 0; grid-row: 1 / 3; padding: 0; }
+  .risk-icon-v2 { width: 76px; height: 76px; }
+  .risk-item-v2 .risk-num { font-size: 11px; margin-bottom: 4px; grid-column: 2; }
+  .risk-item-v2 .risk-headline { min-height: auto; margin-bottom: 4px; font-size: 14px; grid-column: 2; }
+  .risk-item-v2 .risk-desc { font-size: 12px; grid-column: 2; }
+}
+
 .risk-num {
   font-family: 'DIN Alternate', sans-serif;
   font-size: 13px; font-weight: bold; color: #cc2e22;
@@ -656,6 +871,137 @@ footer#footer { background-color: #454545; color: #ffffff; margin-top: 80px; pad
   padding-top: 14px; border-top: 1px dashed #C3D8DA;
 }
 .evidence-source a { color: #1897a0; text-decoration: underline; word-break: break-all; }
+
+/* === 銀クリ調査タイムライン（v2） === */
+.evidence-box-v2 {
+  background: linear-gradient(135deg, #f1faf9 0%, #ffffff 100%);
+  border: 2px solid #1897a0;
+  border-radius: 16px;
+  padding: 24px 18px;
+  margin: 40px 0;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(24,151,160,0.12);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.evidence-box-v2.in-view {
+  opacity: 1; transform: translateY(0);
+}
+.evidence-v2-tag {
+  display: inline-block;
+  background: #1897a0; color: #fff;
+  padding: 5px 16px; border-radius: 20px;
+  font-size: 12px; font-weight: bold;
+  letter-spacing: 0.05em;
+  margin-bottom: 14px;
+}
+.evidence-v2-title {
+  font-size: 17px; font-weight: bold; color: #04384c;
+  margin-bottom: 28px;
+}
+.evidence-timeline {
+  position: relative;
+  margin: 0 auto 24px;
+  padding: 0 8px;
+  max-width: 520px;
+}
+.timeline-track {
+  position: absolute;
+  top: 9px; left: 16%; right: 16%;
+  height: 4px;
+  background: #d8e8e9;
+  border-radius: 2px;
+  z-index: 1;
+}
+.timeline-progress {
+  position: absolute;
+  top: 0; left: 0;
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #1897a0 0%, #1897a0 50%, #04384c 100%);
+  border-radius: 2px;
+  transition: width 1.4s ease-out 0.5s;
+}
+.evidence-box-v2.in-view .timeline-progress {
+  width: 100%;
+}
+.timeline-points {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: relative;
+  z-index: 2;
+}
+.timeline-point {
+  text-align: center;
+}
+.timeline-dot {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  border: 4px solid #d8e8e9;
+  margin: 0 auto;
+  transition: all 0.6s ease-out;
+}
+.evidence-box-v2.in-view .timeline-p1 .timeline-dot {
+  border-color: #1897a0;
+  transition-delay: 0.6s;
+}
+.evidence-box-v2.in-view .timeline-p2 .timeline-dot {
+  border-color: #1897a0;
+  background: #1897a0;
+  transform: scale(1.2);
+  box-shadow: 0 0 0 6px rgba(24,151,160,0.15);
+  transition-delay: 1.0s;
+}
+.evidence-box-v2.in-view .timeline-p3 .timeline-dot {
+  border-color: #04384c;
+  transition-delay: 1.4s;
+}
+.timeline-month {
+  font-size: 14px; font-weight: bold; color: #04384c;
+  margin-top: 10px;
+}
+.timeline-p2 .timeline-month {
+  color: #1897a0; font-size: 16px;
+}
+.timeline-label {
+  font-size: 11px; color: #555;
+  line-height: 1.4; margin-top: 4px;
+}
+.timeline-label.highlight {
+  color: #04384c; font-weight: bold;
+  font-size: 12px;
+}
+.evidence-v2-note {
+  display: inline-block;
+  background: #fff7d5;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 13px; color: #04384c;
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+.evidence-v2-note strong { color: #cc2e22; }
+.evidence-v2-source {
+  font-size: 11px; color: #666;
+  padding-top: 12px;
+  border-top: 1px dashed #C3D8DA;
+  margin-top: 8px;
+}
+.evidence-v2-source a {
+  color: #1897a0; text-decoration: underline;
+  word-break: break-all;
+}
+
+@media (max-width: 480px) {
+  .timeline-month { font-size: 12px; }
+  .timeline-p2 .timeline-month { font-size: 14px; }
+  .timeline-label { font-size: 10px; }
+  .timeline-label.highlight { font-size: 11px; }
+  .evidence-v2-title { font-size: 16px; }
+}
+
 
 /* === グラフ（旧） === */
 .stat-graph {
@@ -786,19 +1132,194 @@ h3.checklist-heading {
     ＋オンライン対応20院もあった。</strong>
   </p>
 
-  <div class="clinic-chip-grid">
-    <div class="clinic-chip">銀座総合美容クリニック</div>
-    <div class="clinic-chip">AGAスキンクリニック</div>
-    <div class="clinic-chip">湘南美容クリニック</div>
-    <div class="clinic-chip">Dクリニック</div>
-    <div class="clinic-chip">ゴリラクリニック</div>
-    <div class="clinic-chip">AGAヘアクリニック</div>
-    <div class="clinic-chip">クリニックフォア</div>
-    <div class="clinic-chip">イースト駅前クリニック</div>
-    <div class="clinic-chip">B&Hメディカルクリニック</div>
-    <div class="clinic-chip">eLife</div>
-    <div class="clinic-chip">DMMオンラインクリニック</div>
-    <div class="clinic-chip muted">+50院以上…</div>
+  <div class="tokyo-map-wrap">
+    <div class="tokyo-map-title">東京・山手線エリアの主要AGAクリニック分布</div>
+    <svg viewBox="0 0 420 400" xmlns="http://www.w3.org/2000/svg" class="tokyo-map">
+      <!-- 背景：陸地 -->
+      <rect width="420" height="400" fill="#f5f1e8"/>
+      
+      <!-- 隅田川 -->
+      <path d="M 280 30 Q 290 80 295 130 Q 300 180 305 230 Q 308 270 312 320" stroke="#b8d8e0" stroke-width="5" fill="none" opacity="0.85"/>
+      <!-- 神田川（新宿〜お茶の水〜隅田川合流） -->
+      <path d="M 30 175 Q 80 178 130 180 Q 180 182 220 185 Q 250 190 295 205" stroke="#b8d8e0" stroke-width="3" fill="none" opacity="0.7"/>
+      <!-- 目黒川（渋谷〜目黒〜東京湾） -->
+      <path d="M 92 268 Q 110 295 130 330 Q 145 360 165 385" stroke="#b8d8e0" stroke-width="2.5" fill="none" opacity="0.7"/>
+      
+      <!-- 東京湾（右下） -->
+      <path d="M 280 320 Q 320 340 360 380 L 420 400 L 320 400 Q 290 360 280 320 Z" fill="#b8d8e0" opacity="0.85"/>
+      <text x="350" y="385" text-anchor="middle" fill="#5a8a9a" font-size="10" font-style="italic" opacity="0.8">東京湾</text>
+      
+      <!-- 主要な緑地 -->
+      <!-- 皇居 -->
+      <path d="M 175 220 Q 215 210 225 235 Q 218 258 188 252 Q 165 244 175 220 Z" fill="#c8d6b3" opacity="0.9" stroke="#9caf3a" stroke-width="1" stroke-dasharray="2 2"/>
+      <text x="200" y="240" text-anchor="middle" fill="#5a6b3a" font-size="9" font-weight="bold">皇居</text>
+      
+      <!-- 新宿御苑 -->
+      <ellipse cx="115" cy="220" rx="18" ry="11" fill="#c8d6b3" opacity="0.85"/>
+      <text x="115" y="224" text-anchor="middle" fill="#5a6b3a" font-size="7">新宿御苑</text>
+      
+      <!-- 代々木公園 -->
+      <ellipse cx="92" cy="250" rx="14" ry="13" fill="#c8d6b3" opacity="0.85"/>
+      
+      <!-- 上野公園 -->
+      <ellipse cx="265" cy="142" rx="16" ry="11" fill="#c8d6b3" opacity="0.85"/>
+      <text x="265" y="146" text-anchor="middle" fill="#5a6b3a" font-size="7">上野公園</text>
+      
+      <!-- 明治神宮 -->
+      <ellipse cx="80" cy="240" rx="12" ry="14" fill="#c8d6b3" opacity="0.85"/>
+      
+      <!-- 山手線（リアルな駅順ループ） -->
+      <polygon points="236.7,219.1 228.6,232.2 217.7,251.2 214.4,273.4 193.4,294.1 174.2,330.4 151.6,349.2 140.1,335.9 122.9,319.6 110.5,292.6 92.0,268.1 94.4,242.4 93.3,215.5 89.7,199.1 88.4,177.1 96.8,152.8 102.1,134.9 112.5,117.2 150.5,113.2 175.7,108.7 191.4,102.2 223.3,99.6 244.7,120.1 261.5,134.7 259.5,149.7 253.5,163.2 250.0,182.8 244.7,196.8"
+               fill="#e8f0d8" opacity="0.4" stroke="#9caf3a" stroke-width="2.5"/>
+      
+      <!-- 主要駅マーカー -->
+      <g>
+        <circle cx="236.7" cy="219.1" r="3.5" fill="#fff" stroke="#5a8a3a" stroke-width="1.8"/>
+        <text x="246" y="222" text-anchor="start" font-size="10" fill="#333" font-weight="bold">東京</text>
+        
+        <circle cx="89.7" cy="199.1" r="3.5" fill="#fff" stroke="#5a8a3a" stroke-width="1.8"/>
+        <text x="81" y="202" text-anchor="end" font-size="10" fill="#333" font-weight="bold">新宿</text>
+        
+        <circle cx="92" cy="268.1" r="3.5" fill="#fff" stroke="#5a8a3a" stroke-width="1.8"/>
+        <text x="83" y="271" text-anchor="end" font-size="10" fill="#333" font-weight="bold">渋谷</text>
+        
+        <circle cx="112.5" cy="117.2" r="3.5" fill="#fff" stroke="#5a8a3a" stroke-width="1.8"/>
+        <text x="112.5" y="110" text-anchor="middle" font-size="10" fill="#333" font-weight="bold">池袋</text>
+        
+        <circle cx="174.2" cy="330.4" r="3.5" fill="#fff" stroke="#5a8a3a" stroke-width="1.8"/>
+        <text x="174.2" y="346" text-anchor="middle" font-size="10" fill="#333" font-weight="bold">品川</text>
+        
+        <circle cx="259.5" cy="149.7" r="3.5" fill="#fff" stroke="#5a8a3a" stroke-width="1.8"/>
+        <text x="268" y="152" text-anchor="start" font-size="10" fill="#333" font-weight="bold">上野</text>
+        
+        <circle cx="250" cy="182.8" r="3.5" fill="#fff" stroke="#5a8a3a" stroke-width="1.8"/>
+        <text x="258" y="185" text-anchor="start" font-size="10" fill="#333" font-weight="bold">秋葉原</text>
+        
+        <circle cx="217.7" cy="251.2" r="3.5" fill="#fff" stroke="#5a8a3a" stroke-width="1.8"/>
+        <text x="209" y="254" text-anchor="end" font-size="10" fill="#333" font-weight="bold">新橋</text>
+        
+        <circle cx="302.2" cy="148.2" r="3.5" fill="#fff" stroke="#5a8a3a" stroke-width="1.8"/>
+        <text x="310" y="149" text-anchor="start" font-size="10" fill="#333" font-weight="bold">浅草</text>
+        
+        <circle cx="320.3" cy="75.8" r="3.5" fill="#fff" stroke="#5a8a3a" stroke-width="1.8"/>
+        <text x="328" y="82" text-anchor="start" font-size="10" fill="#333" font-weight="bold">北千住</text>
+        
+        <circle cx="339.5" cy="185.8" r="3.5" fill="#fff" stroke="#5a8a3a" stroke-width="1.8"/>
+        <text x="347" y="188" text-anchor="start" font-size="10" fill="#333" font-weight="bold">錦糸町</text>
+        
+        <circle cx="110.5" cy="292.6" r="3.5" fill="#fff" stroke="#5a8a3a" stroke-width="1.8"/>
+        <text x="102" y="295" text-anchor="end" font-size="10" fill="#333" font-weight="bold">恵比寿</text>
+      </g>
+      
+      <!-- =========== 60院のクリニックマーカー =========== -->
+      <!-- 池袋エリア（8院） -->
+      <circle cx="118.2" cy="119.7" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>Dr.AGA池袋院</title></circle>
+      <circle cx="117.1" cy="119.9" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>湘南AGA池袋院</title></circle>
+      <circle cx="118.4" cy="121.4" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>AGAスキン池袋院</title></circle>
+      <circle cx="107.4" cy="110.8" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>ナチュラルAGA池袋院</title></circle>
+      <circle cx="119.0" cy="112.7" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>Ikebukuro AGA Clinics</title></circle>
+      <circle cx="113.8" cy="118.2" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>ゴリラクリニック池袋</title></circle>
+      <circle cx="122.7" cy="120.3" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>AGAヘアクリニック池袋</title></circle>
+      <circle cx="112.7" cy="116.1" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>クリニックフォア池袋</title></circle>
+      
+      <!-- 新宿エリア（11院） -->
+      <circle cx="93.1" cy="194.9" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>Dr.AGA新宿院</title></circle>
+      <circle cx="74.3" cy="192.6" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>湘南AGA新宿本院</title></circle>
+      <circle cx="78.3" cy="192.4" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>Shinjuku AGA Clinic</title></circle>
+      <circle cx="95.2" cy="203.2" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>ウィルAGA新宿院</title></circle>
+      <circle cx="82.3" cy="205.6" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>AGAスキン新宿駅前</title></circle>
+      <circle cx="98.4" cy="200.6" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>ゴリラクリニック新宿</title></circle>
+      <circle cx="90.6" cy="202.7" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>クリニックフォア新宿</title></circle>
+      <circle cx="99.5" cy="196.3" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>Dクリニック新宿</title></circle>
+      <circle cx="88.4" cy="199.5" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>AGAヘアクリニック新宿</title></circle>
+      <circle cx="85.1" cy="197.4" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>B&amp;H新宿院</title></circle>
+      <circle cx="91.7" cy="201.6" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>イースト駅前新宿院</title></circle>
+      
+      <!-- 渋谷・表参道・恵比寿（9院） -->
+      <circle cx="88.2" cy="265.4" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>AGAスキン渋谷院</title></circle>
+      <circle cx="95.6" cy="261.5" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>スマイルAGA渋谷院</title></circle>
+      <circle cx="102.7" cy="262.3" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>東京AGA渋谷院</title></circle>
+      <circle cx="117.0" cy="252.9" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>ウィルAGA表参道院</title></circle>
+      <circle cx="91.7" cy="264.9" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>ゴリラクリニック渋谷</title></circle>
+      <circle cx="98.4" cy="262.8" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>湘南AGA渋谷院</title></circle>
+      <circle cx="106.1" cy="261.8" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>Dr.AGA渋谷院</title></circle>
+      <circle cx="114.9" cy="251.2" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>AGAスキン表参道院</title></circle>
+      <circle cx="110.5" cy="292.6" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>クリニックフォア恵比寿</title></circle>
+      
+      <!-- 銀座・新橋・有楽町（10院） -->
+      <circle cx="231.0" cy="236.9" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>ウィルAGA銀座院</title></circle>
+      <circle cx="232.1" cy="243.0" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>AGAスキン銀座院</title></circle>
+      <circle cx="219.3" cy="247.2" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>Dr.AGA新橋院</title></circle>
+      <circle cx="221.2" cy="248.7" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>銀クリ東京新橋院</title></circle>
+      <circle cx="228.8" cy="238.6" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>湘南AGA銀座院</title></circle>
+      <circle cx="234.3" cy="241.7" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>ゴリラクリニック銀座</title></circle>
+      <circle cx="224.4" cy="243.8" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>クリニックフォア銀座</title></circle>
+      <circle cx="231.0" cy="235.4" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>AGAヘアクリニック銀座</title></circle>
+      <circle cx="217.7" cy="245.9" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>Dクリニック新橋</title></circle>
+      <circle cx="228.6" cy="232.2" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>AGAスキン有楽町院</title></circle>
+      
+      <!-- 上野・秋葉原・神田（7院） -->
+      <circle cx="257.0" cy="158.0" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>AGAスキン上野院</title></circle>
+      <circle cx="256.1" cy="182.3" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>Dr.AGA秋葉原院</title></circle>
+      <circle cx="245.1" cy="179.3" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>AGA Hair Clinic 秋葉原</title></circle>
+      <circle cx="248.0" cy="182.0" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>AGAスキン秋葉原院</title></circle>
+      <circle cx="258.6" cy="156.2" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>湘南AGA上野院</title></circle>
+      <circle cx="252.0" cy="184.7" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>クリニックフォア秋葉原</title></circle>
+      <circle cx="255.3" cy="152.0" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>AGAヘアクリニック上野</title></circle>
+      
+      <!-- 品川・五反田（5院） -->
+      <circle cx="185.4" cy="329.9" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>AGAスキン品川院</title></circle>
+      <circle cx="174.6" cy="330.4" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>湘南AGA品川院</title></circle>
+      <circle cx="180.2" cy="327.6" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>Dr.AGA品川院</title></circle>
+      <circle cx="177.9" cy="331.4" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>ゴリラクリニック品川</title></circle>
+      <circle cx="140.1" cy="335.9" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>AGAスキン五反田院</title></circle>
+      
+      <!-- 北千住（3院） -->
+      <circle cx="320.3" cy="75.8" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>AGAスキン北千住院</title></circle>
+      <circle cx="318.3" cy="78.1" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>湘南AGA北千住院</title></circle>
+      <circle cx="322.7" cy="71.8" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>Dr.AGA北千住院</title></circle>
+      
+      <!-- 浅草・錦糸町（3院） -->
+      <circle cx="302.2" cy="148.2" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>AGAヘアクリニック浅草</title></circle>
+      <circle cx="339.5" cy="185.8" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>AGAスキン錦糸町院</title></circle>
+      <circle cx="337.1" cy="186.8" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>湘南AGA錦糸町院</title></circle>
+      
+      <!-- オンライン特化拠点（4院） -->
+      <circle cx="143.7" cy="234.3" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>DMMオンラインクリニック</title></circle>
+      <circle cx="165.8" cy="219.6" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>eLifeクリニック</title></circle>
+      <circle cx="176.8" cy="215.3" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>AGAスマクリ</title></circle>
+      <circle cx="132.6" cy="232.2" r="4.5" fill="#cc2e22" stroke="#fff" stroke-width="1.2"><title>ヘアリィ</title></circle>
+      
+      <!-- スケール表示 -->
+      <g transform="translate(20, 380)">
+        <line x1="0" y1="0" x2="40" y2="0" stroke="#666" stroke-width="2"/>
+        <line x1="0" y1="-3" x2="0" y2="3" stroke="#666" stroke-width="2"/>
+        <line x1="40" y1="-3" x2="40" y2="3" stroke="#666" stroke-width="2"/>
+        <text x="20" y="-6" text-anchor="middle" font-size="9" fill="#666">1km</text>
+      </g>
+      
+      <!-- 方位 -->
+      <g transform="translate(390, 30)">
+        <circle cx="0" cy="0" r="12" fill="#fff" stroke="#666" stroke-width="1.5"/>
+        <path d="M 0 -8 L 3 0 L 0 8 L -3 0 Z" fill="#cc2e22"/>
+        <text x="0" y="-15" text-anchor="middle" font-size="8" fill="#666" font-weight="bold">N</text>
+      </g>
+    </svg>
+    
+    <div class="map-legend">
+      <div class="map-legend-row">
+        <span class="map-legend-dot"></span>
+        <span>AGAクリニック</span>
+        <strong>60ヶ所</strong>
+      </div>
+      <div class="map-legend-total">
+        東京/山手線エリアの主要AGAクリニック<br>
+        合計 <span class="map-total-num">60院</span>
+        <div class="map-total-sub">対面40院 + オンライン対応20院</div>
+      </div>
+    </div>
+  </div>
+  </div>
   </div>
 
   <p class="has-text-align-center" style="font-weight:bold; color:#cc2e22; font-size:18px;">60院全部見るのしんどい…</p>
@@ -809,64 +1330,110 @@ h3.checklist-heading {
 
   <p style="text-align:center; color:#666; font-size:14px;">AGA治療の選択肢は、大きく3つに分かれます。</p>
 
-  <div class="type-card-new">
-    <div class="type-head-row">
-      <div class="type-no-circle">1</div>
-      <span class="type-name-text">対面のみ</span>
-    </div>
-    <p>クリニックに通って、医師の触診・視診・検査を受ける。処方も個別調整。</p>
-    <div class="type-pc-grid">
-      <div class="good">◯ 検査が正確</div>
-      <div class="bad">× 通院が面倒</div>
-    </div>
-  </div>
-
-  <div class="type-card-new">
-    <div class="type-head-row">
-      <div class="type-no-circle">2</div>
-      <span class="type-name-text">オンラインのみ</span>
-      <span class="type-tag cheap">安い</span>
-    </div>
-    <p>ビデオ通話で診察 → 薬は自宅配送。来院不要、月1,000円台から始められる。</p>
-    <div class="type-pc-grid">
-      <div class="good">◯ 安い・楽</div>
-      <div class="bad">× 触診・検査ができない</div>
-    </div>
-  </div>
-
-  <div class="type-card-new recommended">
-    <div class="type-head-row">
-      <div class="type-no-circle">3</div>
-      <span class="type-name-text">ハイブリッド（対面+オンライン）</span>
-      <span class="type-tag mid">やや安い</span>
-    </div>
-    <p>初診は対面で精密検査 → 効果が出たらオンラインで継続。両方のいいとこ取り。</p>
-    <div class="type-pc-grid">
-      <div class="good">◯ 検査も正確、通院も少ない</div>
-      <div class="good">◯ コストも抑えやすい</div>
-    </div>
+  <!-- 3タイプ比較表（既存LP09スタイル） -->
+  <div class="type-compare-wrap">
+    <table class="type-compare-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>
+            <div class="type-compare-svg">
+              <svg viewBox="0 0 32 32" fill="none"><rect x="9" y="3" width="14" height="26" rx="2" stroke="currentColor" stroke-width="2"/><rect x="11" y="6" width="10" height="15" rx="1" fill="currentColor" opacity="0.15"/><circle cx="16" cy="25" r="1.2" fill="currentColor"/></svg>
+            </div>
+            <span class="type-th-label">オンライン<br>のみ</span>
+          </th>
+          <th class="type-recommended-th">
+            <div class="type-recommended-tag">おすすめ</div>
+            <div class="type-compare-svg">
+              <svg viewBox="0 0 32 32" fill="none"><rect x="3" y="11" width="13" height="18" stroke="currentColor" stroke-width="2" fill="none"/><rect x="7" y="18" width="5" height="11" fill="currentColor" opacity="0.5"/><path d="M8 5L9.5 3L11 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="9.5" y1="3" x2="9.5" y2="11" stroke="currentColor" stroke-width="1.8"/><rect x="19" y="13" width="10" height="16" rx="1.5" stroke="currentColor" stroke-width="1.8" fill="none"/><rect x="20.5" y="15" width="7" height="10" rx="0.5" fill="currentColor" opacity="0.2"/><circle cx="24" cy="27" r="0.8" fill="currentColor"/></svg>
+            </div>
+            <span class="type-th-label">対面+<br>オンライン</span>
+          </th>
+          <th>
+            <div class="type-compare-svg">
+              <svg viewBox="0 0 32 32" fill="none"><rect x="4" y="11" width="24" height="18" stroke="currentColor" stroke-width="2" fill="none"/><rect x="13" y="18" width="6" height="11" fill="currentColor" opacity="0.4"/><path d="M14 5L16 3L18 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="3" x2="16" y2="11" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <span class="type-th-label">対面<br>のみ</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="type-axis">診療方法</th>
+          <td>オンライン</td>
+          <td class="type-recommended-cell">対面+遠隔</td>
+          <td>来院</td>
+        </tr>
+        <tr>
+          <th class="type-axis">医師との<br>かかわり</th>
+          <td>カメラ越し</td>
+          <td class="type-recommended-cell">実際に見て<br>もらえる</td>
+          <td>実際に見て<br>もらえる</td>
+        </tr>
+        <tr>
+          <th class="type-axis">検査・<br>触診</th>
+          <td><span class="type-x">×</span></td>
+          <td class="type-recommended-cell"><span class="type-o">◯</span></td>
+          <td><span class="type-o">◯</span></td>
+        </tr>
+        <tr>
+          <th class="type-axis">通院</th>
+          <td>不要</td>
+          <td class="type-recommended-cell">初診のみ</td>
+          <td>必要</td>
+        </tr>
+        <tr>
+          <th class="type-axis">価格</th>
+          <td>安い</td>
+          <td class="type-recommended-cell">やや安い</td>
+          <td>通常価格</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <!-- =============================== -->
   <!-- 【転1】AGA治療は時間がかかる → 続けやすさが大事 -->
   <!-- =============================== -->
   <p class="has-text-align-center fontsize-big fontsize-big-effect">
-    <strong>そもそも、AGAは<br><span style="color:#1897a0" class="swl-inline-color">数ヶ月〜の継続が前提</span></strong>
+    <strong>AGAは時間とお金がかかる治療。<br><span style="color:#1897a0" class="swl-inline-color">確実に、無駄なく成功させたい</span></strong>
   </p>
 
-  <p>効果を実感するまで、平均で<strong>3〜6ヶ月</strong>かかるという調査結果があります。</p>
+  <p>効果実感まで平均<strong>3〜6ヶ月</strong>かかるからこそ、最初のクリニック選びを間違えると<strong>時間もお金も無駄になります。</strong></p>
 
-  <div class="evidence-box">
-    <div class="evidence-tag">銀クリ患者396名の調査</div>
-    <div class="evidence-text-main">
-      AGA治療の効果実感までの目安
+  <div class="evidence-box-v2">
+    <div class="evidence-v2-tag">銀クリ患者396名の調査</div>
+    <div class="evidence-v2-title">AGA治療の効果実感までの目安</div>
+    
+    <!-- タイムラインインフォグラフィック -->
+    <div class="evidence-timeline">
+      <div class="timeline-track">
+        <div class="timeline-progress"></div>
+      </div>
+      <div class="timeline-points">
+        <div class="timeline-point timeline-p1">
+          <div class="timeline-dot"></div>
+          <div class="timeline-month">3ヶ月</div>
+          <div class="timeline-label">早い人は<br>変化を実感</div>
+        </div>
+        <div class="timeline-point timeline-p2 active">
+          <div class="timeline-dot active"></div>
+          <div class="timeline-month">3〜6ヶ月</div>
+          <div class="timeline-label highlight">多くの人が<br>発毛を実感</div>
+        </div>
+        <div class="timeline-point timeline-p3">
+          <div class="timeline-dot"></div>
+          <div class="timeline-month">6ヶ月〜1年</div>
+          <div class="timeline-label">安定した<br>効果が継続</div>
+        </div>
+      </div>
     </div>
-    <ul class="evidence-list">
-      <li>早い人で<span class="accent">3ヶ月</span>程度から変化を実感</li>
-      <li>多くの人は<span class="accent">3〜6ヶ月</span>で発毛効果を実感</li>
-      <li>安定した効果には<span class="accent">6ヶ月〜1年</span>の継続が目安</li>
-    </ul>
-    <div class="evidence-source">
+
+    <div class="evidence-v2-note">
+      = 失敗できないからこそ、<strong>最初の選択</strong>が重要
+    </div>
+    
+    <div class="evidence-v2-source">
       ※出典：<a href="https://www.gincli.jp/medical/effect/" target="_blank" rel="noopener">銀座総合美容クリニック「AGA治療の効果と実績」</a>
     </div>
   </div>
@@ -965,48 +1532,56 @@ h3.checklist-heading {
     <strong>なぜオンラインだけだと<br><span style="color:#1897a0" class="swl-inline-color">失敗しやすい</span>のか？</strong>
   </p>
 
-  <!-- 図解1：オンライン診療 vs 対面診療の比較 -->
+  <!-- 図解1：オンライン診療 vs 対面診療の比較（既存LP09スタイル） -->
   <div class="reason-section">
     <h3 class="reason-title">
       <span class="reason-num">1</span>
       頭皮・毛髪の診察は<span style="color:#cc2e22">触診・視診が不可欠</span>
     </h3>
 
-    <div class="diagnostic-compare">
-      <!-- オンライン側 -->
-      <div class="diagnostic-card diagnostic-online">
-        <div class="diagnostic-head">
-          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="9" y="3" width="14" height="26" rx="2" stroke="#999" stroke-width="2"/>
-            <rect x="11" y="6" width="10" height="15" rx="1" fill="#e5e5e5"/>
-            <circle cx="16" cy="25" r="1.2" fill="#999"/>
-          </svg>
-          <span class="diagnostic-label">オンライン診療</span>
-        </div>
-        <ul class="diagnostic-list diagnostic-list-bad">
-          <li><span class="bad-icon">×</span>触診できない</li>
-          <li><span class="bad-icon">×</span>細かな視診ができない</li>
-          <li><span class="bad-icon">×</span>検体採取・顕微鏡検査不可</li>
-        </ul>
-      </div>
-
-      <!-- 対面側 -->
-      <div class="diagnostic-card diagnostic-offline">
-        <div class="diagnostic-head">
-          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="4" y="11" width="24" height="18" stroke="#1897a0" stroke-width="2" fill="#fff"/>
-            <rect x="13" y="18" width="6" height="11" fill="#1897a0"/>
-            <path d="M14 5L16 3L18 5" stroke="#1897a0" stroke-width="2" stroke-linecap="round"/>
-            <line x1="16" y1="3" x2="16" y2="11" stroke="#1897a0" stroke-width="2"/>
-          </svg>
-          <span class="diagnostic-label">対面診療</span>
-        </div>
-        <ul class="diagnostic-list diagnostic-list-good">
-          <li><span class="good-icon">◯</span>頭皮を直接触って確認</li>
-          <li><span class="good-icon">◯</span>頭髪を拡大・接近して観察</li>
-          <li><span class="good-icon">◯</span>必要に応じて精密検査</li>
-        </ul>
-      </div>
+    <!-- 比較表（3タイプ表と同じスタイル） -->
+    <div class="type-compare-wrap">
+      <table class="type-compare-table">
+        <thead>
+          <tr>
+            <th class="type-axis-blank"></th>
+            <th>
+              <div class="type-compare-svg">
+                <svg viewBox="0 0 32 32" fill="none"><rect x="9" y="3" width="14" height="26" rx="2" stroke="currentColor" stroke-width="2"/><rect x="11" y="6" width="10" height="15" rx="1" fill="currentColor" opacity="0.15"/><circle cx="16" cy="25" r="1.2" fill="currentColor"/></svg>
+              </div>
+              <span class="type-th-label">オンライン<br>診療</span>
+            </th>
+            <th class="type-recommended-th">
+              <div class="type-compare-svg">
+                <svg viewBox="0 0 32 32" fill="none"><rect x="4" y="11" width="24" height="18" stroke="currentColor" stroke-width="2" fill="none"/><rect x="13" y="18" width="6" height="11" fill="currentColor" opacity="0.4"/><path d="M14 5L16 3L18 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="3" x2="16" y2="11" stroke="currentColor" stroke-width="2"/></svg>
+              </div>
+              <span class="type-th-label">対面<br>診療</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th class="type-axis">頭皮を<br>直接触る</th>
+            <td><span class="type-x">×</span></td>
+            <td class="type-recommended-cell"><span class="type-o">◯</span></td>
+          </tr>
+          <tr>
+            <th class="type-axis">細かな<br>視診</th>
+            <td><span class="type-x">×</span></td>
+            <td class="type-recommended-cell"><span class="type-o">◯</span></td>
+          </tr>
+          <tr>
+            <th class="type-axis">顕微鏡<br>検査</th>
+            <td><span class="type-x">×</span></td>
+            <td class="type-recommended-cell"><span class="type-o">◯</span></td>
+          </tr>
+          <tr>
+            <th class="type-axis">診断<br>精度</th>
+            <td><span style="color:#cc2e22; font-size:12px; font-weight:bold;">限定的</span></td>
+            <td class="type-recommended-cell"><span style="color:#1897a0; font-size:12px; font-weight:bold;">高い</span></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <div class="reason-quote">
@@ -1025,58 +1600,68 @@ h3.checklist-heading {
     </h3>
 
     <div class="risk-grid">
-      <div class="risk-item">
-        <div class="risk-icon">
-          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- 人のシルエット -->
-            <circle cx="30" cy="20" r="7" stroke="#cc2e22" stroke-width="2.5" fill="#fff5f4"/>
-            <path d="M16 48c0-8 6-14 14-14s14 6 14 14" stroke="#cc2e22" stroke-width="2.5" stroke-linecap="round" fill="#fff5f4"/>
-            <!-- 心拍ライン -->
-            <path d="M14 34h6l2-5 3 10 3-8 2 3h6" stroke="#cc2e22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <!-- 警告マーク -->
-            <circle cx="48" cy="14" r="10" fill="#cc2e22"/>
-            <path d="M48 9v6" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
-            <circle cx="48" cy="18.5" r="1.2" fill="#fff"/>
-          </svg>
+      <div class="risk-item risk-item-v2">
+        <div class="risk-icon-bg">
+          <div class="risk-icon-v2">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- 背景円（淡い） -->
+              <circle cx="40" cy="40" r="34" fill="#ffd6d2" opacity="0.4"/>
+              <!-- 人のシルエット -->
+              <circle cx="40" cy="28" r="9" stroke="#cc2e22" stroke-width="3" fill="#fff"/>
+              <path d="M22 58c0-10 8-18 18-18s18 8 18 18" stroke="#cc2e22" stroke-width="3" stroke-linecap="round" fill="#fff"/>
+              <!-- 心拍ライン -->
+              <path d="M20 46h8l3-7 4 14 4-12 3 5h8" stroke="#cc2e22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <!-- 警告マーク（バッジ） -->
+              <circle cx="62" cy="20" r="12" fill="#cc2e22"/>
+              <path d="M62 14v8" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="62" cy="26" r="1.5" fill="#fff"/>
+            </svg>
+          </div>
         </div>
-        <div class="risk-num">01</div>
+        <div class="risk-num">RISK 01</div>
         <div class="risk-headline">健康リスクの見落とし</div>
         <div class="risk-desc">血液検査や問診だけでは把握しきれない副作用リスクがある</div>
       </div>
 
-      <div class="risk-item">
-        <div class="risk-icon">
-          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- 頭部シルエット（横顔） -->
-            <path d="M18 38c0-12 6-22 16-22s14 8 14 16-4 12-8 14c-2 1-3 3-3 5v3h-12v-3c0-2-1-3-3-4-2-1-4-4-4-9z"
-                  stroke="#cc2e22" stroke-width="2.5" fill="#fff5f4" stroke-linejoin="round"/>
-            <!-- 目 -->
-            <circle cx="32" cy="32" r="1.5" fill="#cc2e22"/>
-            <!-- 大きな？マーク -->
-            <path d="M38 18c0-3 2.5-5 5.5-5s5.5 2 5.5 5c0 2.5-2 4-4 4.5-1 0.3-1.5 1-1.5 2v1.5"
-                  stroke="#cc2e22" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-            <circle cx="43.5" cy="29" r="1.5" fill="#cc2e22"/>
-          </svg>
+      <div class="risk-item risk-item-v2">
+        <div class="risk-icon-bg">
+          <div class="risk-icon-v2">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="40" cy="40" r="34" fill="#ffd6d2" opacity="0.4"/>
+              <!-- 頭部シルエット（横顔） -->
+              <path d="M22 52c0-16 8-30 22-30s20 12 20 22-5 17-11 19c-3 1-4 4-4 7v4h-17v-4c0-3-1-4-4-5-3-1-6-5-6-13z"
+                    stroke="#cc2e22" stroke-width="3" fill="#fff" stroke-linejoin="round"/>
+              <!-- 目 -->
+              <circle cx="42" cy="42" r="2" fill="#cc2e22"/>
+              <!-- 大きな？マーク -->
+              <path d="M48 22c0-4 3.5-7 8-7s8 3 8 7c0 3.5-3 5.5-5.5 6.5-1.5 0.5-2 1.5-2 2.5v2"
+                    stroke="#cc2e22" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+              <circle cx="56.5" cy="38" r="2" fill="#cc2e22"/>
+            </svg>
+          </div>
         </div>
-        <div class="risk-num">02</div>
+        <div class="risk-num">RISK 02</div>
         <div class="risk-headline">治療不要なケースの見逃し</div>
         <div class="risk-desc">そもそもAGAでない（円形脱毛・栄養不足等）のに治療薬を処方される可能性</div>
       </div>
 
-      <div class="risk-item">
-        <div class="risk-icon">
-          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- 大きなカプセル錠剤 -->
-            <rect x="10" y="22" width="32" height="16" rx="8"
-                  stroke="#cc2e22" stroke-width="2.5" fill="#fff5f4"/>
-            <line x1="26" y1="22" x2="26" y2="38" stroke="#cc2e22" stroke-width="2"/>
-            <rect x="10" y="22" width="16" height="16" rx="8" fill="#ffd6d2"/>
-            <!-- ×マーク（合わない） -->
-            <circle cx="48" cy="44" r="10" fill="#cc2e22"/>
-            <path d="M44 40l8 8M52 40l-8 8" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
-          </svg>
+      <div class="risk-item risk-item-v2">
+        <div class="risk-icon-bg">
+          <div class="risk-icon-v2">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="40" cy="40" r="34" fill="#ffd6d2" opacity="0.4"/>
+              <!-- 大きなカプセル錠剤 -->
+              <rect x="12" y="30" width="42" height="20" rx="10"
+                    stroke="#cc2e22" stroke-width="3" fill="#fff"/>
+              <line x1="33" y1="30" x2="33" y2="50" stroke="#cc2e22" stroke-width="2.5"/>
+              <rect x="12" y="30" width="21" height="20" rx="10" fill="#ffd6d2"/>
+              <!-- ×マーク（合わない） -->
+              <circle cx="60" cy="56" r="12" fill="#cc2e22"/>
+              <path d="M55 51l10 10M65 51l-10 10" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
         </div>
-        <div class="risk-num">03</div>
+        <div class="risk-num">RISK 03</div>
         <div class="risk-headline">処方量が合わず効果が出ない</div>
         <div class="risk-desc">進行度・体質に合わせた濃度調整ができず、効果が出ないまま継続コストだけかかる</div>
       </div>
@@ -1170,7 +1755,7 @@ h3.checklist-heading {
       <tbody>
         <tr>
           <td colspan="4" style="text-align:center;border-color:#c3d8da;background-color:#1897a0;color:#fff;padding:8px;">
-            <strong>編集部おすすめ</strong>
+            <strong>編集部厳選</strong>
           </td>
         </tr>
         <tr>
@@ -1526,7 +2111,7 @@ const conclusionObserver = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.2 });
-document.querySelectorAll('.conclusion-box, .evidence-box').forEach(el => conclusionObserver.observe(el));
+document.querySelectorAll('.conclusion-box, .evidence-box, .evidence-box-v2').forEach(el => conclusionObserver.observe(el));
 </script>
 </body>
 </html>
