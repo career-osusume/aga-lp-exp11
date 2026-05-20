@@ -53,7 +53,7 @@ body { background: #ffffff; }
 
 /* LPコンテンツ全体を640pxに制限（最重要） */
 .lp-content { max-width: 640px; margin: 0 auto; padding: 0 16px; }
-main.lp-content__inner { background: #ffffff; margin: 40px auto 80px; padding: 0; max-width: 640px; }
+main.lp-content__inner { background: #ffffff; margin: 40px auto 80px; padding: 0 20px; max-width: 640px; box-sizing: border-box; }
 
 p { font-size: 18px; font-family: "Noto Sans JP", sans-serif; font-weight: 100; line-height: 1.8; }
 table { font-family: "Noto Sans JP", sans-serif; font-weight: 500; }
@@ -236,12 +236,14 @@ footer#footer { background-color: #454545; color: #ffffff; margin-top: 80px; pad
 
 /* === 東京エリア地図 === */
 .tokyo-map-wrap {
-  margin: 24px 0;
+  margin: 24px auto;
+  max-width: 100%;
   background: #fff;
   border: 2px solid #C3D8DA;
   border-radius: 12px;
   padding: 20px 16px;
   box-shadow: 0 2px 6px rgba(24,151,160,0.06);
+  box-sizing: border-box;
 }
 .tokyo-map {
   width: 100%; max-width: 480px;
@@ -291,12 +293,17 @@ footer#footer { background-color: #454545; color: #ffffff; margin-top: 80px; pad
 
 /* === 3タイプ比較表（既存LP09トンマナ） === */
 .type-compare-wrap {
-  margin: 28px 0;
+  margin: 28px auto;
+  max-width: 100%;
   background: #fff;
   border-radius: 16px;
   padding: 18px 14px;
   border: 2px solid #C3D8DA;
   box-shadow: 0 2px 8px rgba(24,151,160,0.06);
+  box-sizing: border-box;
+}
+.type-compare-table {
+  table-layout: fixed;
 }
 .type-compare-table {
   width: 100%; border-collapse: separate; border-spacing: 0;
@@ -507,9 +514,11 @@ footer#footer { background-color: #454545; color: #ffffff; margin-top: 80px; pad
   background: linear-gradient(180deg, #f1faf9 0%, #e6f5f5 100%);
   border-radius: 16px;
   padding: 28px 20px 24px;
-  margin: 40px 0 0;
+  margin: 40px auto 0;
+  max-width: 100%;
   text-align: center;
   position: relative;
+  box-sizing: border-box;
 }
 .optimism-badge {
   display: inline-block;
@@ -602,12 +611,14 @@ footer#footer { background-color: #454545; color: #ffffff; margin-top: 80px; pad
   border: 2px solid #cc2e22;
   border-radius: 16px;
   padding: 30px 20px 24px;
-  margin: 0 0 40px;
+  margin: 0 auto 40px;
+  max-width: 100%;
   text-align: center;
   color: #04384c;
   box-shadow: 0 8px 24px rgba(204,46,34,0.12);
   position: relative;
   overflow: hidden;
+  box-sizing: border-box;
 }
 .warning-zone::before {
   content: '';
@@ -734,7 +745,9 @@ footer#footer { background-color: #454545; color: #ffffff; margin-top: 80px; pad
 .reason-quote {
   background: #fff8f7; border-left: 4px solid #cc2e22;
   padding: 14px 16px; border-radius: 0 8px 8px 0;
-  margin-top: 14px;
+  margin: 14px auto 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 .reason-quote p {
   margin: 0; font-size: 14px; line-height: 1.7; color: #333;
@@ -750,6 +763,8 @@ footer#footer { background-color: #454545; color: #ffffff; margin-top: 80px; pad
 /* リスクグリッド（3つ並び） */
 .risk-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+  max-width: 100%;
+  margin: 0 auto;
 }
 .risk-item {
   background: #fff; border: 2px solid #ffd6d2;
@@ -878,12 +893,14 @@ footer#footer { background-color: #454545; color: #ffffff; margin-top: 80px; pad
   border: 2px solid #1897a0;
   border-radius: 16px;
   padding: 24px 18px;
-  margin: 40px 0;
+  margin: 40px auto;
+  max-width: 100%;
   text-align: center;
   box-shadow: 0 4px 16px rgba(24,151,160,0.12);
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  box-sizing: border-box;
 }
 .evidence-box-v2.in-view {
   opacity: 1; transform: translateY(0);
@@ -1028,11 +1045,13 @@ footer#footer { background-color: #454545; color: #ffffff; margin-top: 80px; pad
   background: #ffffff;
   border: 2px solid #1897a0;
   color: #04384c; padding: 28px 20px; border-radius: 12px;
-  margin: 40px 0; text-align: center;
+  margin: 40px auto; text-align: center;
+  max-width: 100%;
   box-shadow: 0 2px 8px rgba(24,151,160,0.08);
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out, box-shadow 0.8s ease-out;
+  box-sizing: border-box;
 }
 .conclusion-box.in-view {
   opacity: 1;
